@@ -1,0 +1,6 @@
+<div *ngIf="tags" class="d-flex justify-content-center mb-4">
+  <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}" class="mx-1 d-inline-block">
+    <div class="badge rounded-pill text-bg-light p-2">{{ tag.name }} <span class="text-danger">{{ tag.count }}</span>
+    </div>
+  </a>
+</div>

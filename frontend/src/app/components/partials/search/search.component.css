@@ -1,0 +1,10 @@
+.search-container{
+  width:400px
+}
+.search-container input{
+  border-radius: 20px 20px 0;
+}
+
+.search-container button{
+  border-radius: 0  20px 20px;
+}

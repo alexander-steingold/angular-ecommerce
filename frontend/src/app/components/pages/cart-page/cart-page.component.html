@@ -1,0 +1,58 @@
+<div class="container">
+  <app-title title="Cart Page"></app-title>
+  <app-not-found
+    [visible]="!cart || !cart.items.length"
+    notFoundMessage="Cart Is Empty!"
+    resetLinkText="Go To Homepage"
+  ></app-not-found>
+  <div class="row" *ngIf="cart && cart.items.length">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <tr *ngFor="let cartItem of cart.items">
+                <td width="10%">
+                  <img [src]="cartItem.item.imageUrl" class="img-fluid" [alt]="cartItem.item.name">
+                </td>
+                <td width="40%">
+                  <a routerLink="/item/{{cartItem.item.id}}"> {{cartItem.item.name}}</a>
+                </td>
+                <td width="10%">
+                  <select #quantitySelect
+                          [value]="cartItem.quantity"
+                          (change)="changeQuantity(cartItem, quantitySelect.value)"
+                          class="form-select-sm">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </td>
+                <td width="20%" class="text-center">
+                  {{cartItem.price | currency}}
+                </td>
+                <td class="text-end" width="20%">
+                  <i class="bi bi-trash3 text-danger btn btn-link" (click)="removeFromCart(cartItem)"></i>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="text-center mt-5">Count: {{cart.totalCount}}</h4>
+          <h4 class="text-center mb-5">Price: {{cart.totalPrice | currency}}</h4>
+          <div class="d-grid gap-2">
+            <button class="btn  btn-danger mt-4 round-btn " routerLink="/checkout">Proceed To Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

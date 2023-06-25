@@ -1,0 +1,39 @@
+<div class="container">
+  <app-search></app-search>
+  <app-tags></app-tags>
+  <app-not-found
+    [visible]="!items || !items.length"
+    resetLinkText="Reset Search"
+  ></app-not-found>
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let item of items">
+      <a routerLink="/item/{{item.id}}">
+        <div class="card">
+          <img [src]="item.imageUrl" [alt]="item.name" class="card-img-top">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="card-title m-0 fw-bolder text-danger"> {{item.name}}</h6>
+              <i class="bi bi-heart-fill {{item.favorite ? 'text-danger':''}}"></i>
+            </div>
+            <ngb-rating [rate]="item.stars || 0" [readonly]="true" [max]="5"></ngb-rating>
+            <h5 class="text-center m-0">{{item.price | currency}}</h5>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <div>
+              <i class="bi bi-geo-alt-fill"></i>
+              <span *ngFor="let origin  of item.origins">
+                {{ origin | titlecase }}
+              </span>
+            </div>
+            <div>
+              <i class="bi bi-clock-fill"></i>
+              {{item.cookTime}}
+            </div>
+          </div>
+        </div>
+
+      </a>
+    </div>
+  </div>
+</div>
