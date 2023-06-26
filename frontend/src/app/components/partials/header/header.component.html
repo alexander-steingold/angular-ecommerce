@@ -8,12 +8,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!isAuth">
             <a routerLink="/login" class="nav-link">Login</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="isAuth">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              John
+              {{ this.user.name}}
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
@@ -21,7 +21,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" routerLink="/logout">Logout</a></li>
+              <li><a class="dropdown-item btn" (click)="logout()">Logout</a></li>
             </ul>
           </li>
           <li class="nav-item">

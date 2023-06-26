@@ -1,0 +1,25 @@
+<div class="container">
+  <main class="login-form w-100 m-auto">
+    <app-title title="Login"></app-title>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="form-floating  mt-4">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <label>Email Address</label>
+      </div>
+      <div *ngIf="fc.email.errors && isSubmitted" class="text-danger mt-2 fw-bolder">
+        <small *ngIf="fc.email.errors.required">Field is required</small>
+        <small *ngIf="fc.email.errors.email">Not valid email</small>
+      </div>
+      <div class="form-floating mt-4">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password">
+        <label>Password</label>
+      </div>
+      <div *ngIf="fc.password.errors && isSubmitted" class="text-danger mt-2 fw-bolder">
+        <small *ngIf="fc.password.errors.required">Field is required</small>
+        <small *ngIf="fc.password.errors.minlength">Minimum length is 6 characters</small>
+      </div>
+      <button class="btn btn-primary mt-4 w-100 py-2" type="submit">Login</button>
+    </form>
+  </main>
+
+</div>
