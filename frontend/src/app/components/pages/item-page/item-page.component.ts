@@ -3,6 +3,7 @@ import {Item} from "../../../shared/models/Item";
 import {ItemService} from "../../../services/item.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CartService} from "../../../services/cart.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-item-page',
@@ -19,9 +20,12 @@ export class ItemPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        this.item = this.itemService.getItemById(params['id']);
+        this.itemService.getItemById(params['id']).subscribe(serverItem => {
+          this.item = serverItem
+        })
       }
     });
   }
