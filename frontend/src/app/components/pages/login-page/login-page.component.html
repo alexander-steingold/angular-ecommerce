@@ -33,7 +33,14 @@
       <!--        <small *ngIf="fc.password.errors.required">Field is required</small>-->
       <!--        <small *ngIf="fc.password.errors.minlength">Minimum length is 6 characters</small>-->
       <!--      </div>-->
-      <button class="btn btn-primary  w-100 py-2" type="submit">Login</button>
+      <!--      <button class="btn btn-primary w-100 py-2" type="submit">Login</button>-->
+      <div class="d-flex justify-content-center">
+        <default-button
+          type="submit"
+          text="Login"
+          styleClass="btn btn-danger py-2 round-btn"
+        ></default-button>
+      </div>
     </form>
   </main>
 </div>
