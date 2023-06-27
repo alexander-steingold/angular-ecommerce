@@ -1,0 +1,10 @@
+<input-container [label]="label">
+  <input [type]="type" class="form-control" [placeholder]="label" [formControl]="formControl">
+  <!--        <div *ngIf="fc.email.errors && isSubmitted" class="text-danger mt-2 fw-bolder">-->
+  <!--          <small *ngIf="fc.email.errors.required">Field is required</small>-->
+  <!--          <small *ngIf="fc.email.errors.email">Not valid email</small>-->
+  <!--        </div>-->
+  <input-validation
+    [control]="control"
+    [showErrorMessage]="showErrorMessage"></input-validation>
+</input-container>

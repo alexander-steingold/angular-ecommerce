@@ -1,0 +1,7 @@
+<div *ngIf="errorMessages && showErrorMessage" class="text-danger mt-2 fw-bolder">
+  <small *ngFor="let errorMessage of errorMessages">
+    {{errorMessage}}
+  </small>
+  <!--  <small *ngIf="fc.email.errors.required">Field is required</small>-->
+  <!--  <small *ngIf="fc.email.errors.email">Not valid email</small>-->
+</div>
