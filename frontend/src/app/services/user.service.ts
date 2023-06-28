@@ -17,8 +17,13 @@ export class UserService {
   // BehaviorSubject is a generic type of Observable for read and write operations.
   public userObservable: Observable<User>;
 
-  constructor(private http: HttpClient, private toastrService: ToastrService) {
+  constructor(private http: HttpClient,
+              private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable(); //read-only property from the subject of User
+  }
+
+  public getCurrentUser(): User {
+    return this.userSubject.value;
   }
 
   login(userLogin: IUserLogin): Observable<User> {

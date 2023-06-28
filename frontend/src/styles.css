@@ -21,3 +21,14 @@ ngb-rating {
 .form-container {
   max-width: 330px;
 }
+
+.form-container-lg {
+  max-width: 640px;
+}
+
+table img {
+  width: 3rem !important;
+  height: 3rem !important;
+  object-fit: cover;
+  border-radius: 100rem !important;
+}

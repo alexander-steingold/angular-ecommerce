@@ -24,7 +24,7 @@ export class CartService {
     return;
 
   }
-  
+
   removeFromCart(itemId: string): void {
     this.cart.items = this.cart.items.filter(item => item.item.id != itemId);
     this.setCartToLocalStorage();
@@ -48,6 +48,10 @@ export class CartService {
 
   getCartObservable(): Observable<Cart> {
     return this.cartSubject.asObservable();
+  }
+
+  public getCart(): Cart {
+    return this.cartSubject.value;
   }
 
   private setCartToLocalStorage(): void {
