@@ -4,7 +4,8 @@ import {AbstractControl} from "@angular/forms";
 const VALIDATORS_MESSAGES: any = {
   required: 'Required field',
   email: 'Invalid email address',
-  minlength: 'Minimum length is 6 characters'
+  minlength: 'Field is too short',
+  notMatch: 'Password and Confirm does not match'
 }
 
 @Component({

@@ -17,3 +17,7 @@ ngb-rating {
 .round-btn {
   border-radius: 20px !important;
 }
+
+.form-container {
+  max-width: 330px;
+}

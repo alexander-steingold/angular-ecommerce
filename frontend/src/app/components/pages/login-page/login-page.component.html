@@ -1,5 +1,5 @@
 <div class="container">
-  <main class="login-form w-100 m-auto">
+  <main class="form-container w-100 m-auto">
     <app-title title="Login"></app-title>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
@@ -34,12 +34,17 @@
       <!--        <small *ngIf="fc.password.errors.minlength">Minimum length is 6 characters</small>-->
       <!--      </div>-->
       <!--      <button class="btn btn-primary w-100 py-2" type="submit">Login</button>-->
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mt-2">
         <default-button
-          type="submit"
           text="Login"
-          styleClass="btn btn-danger py-2 round-btn"
+          styleClass="btn btn-danger"
         ></default-button>
+      </div>
+      <div class="text-center mt-2">
+        Not a user? &nbsp;
+        <a routerLink="/register" [queryParams]="{returnUrl: returnUrl}" class="text-danger">
+          Register Here
+        </a>
       </div>
     </form>
   </main>
