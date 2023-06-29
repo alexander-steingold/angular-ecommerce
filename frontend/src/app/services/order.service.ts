@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {Order} from "../shared/models/Order";
 import {HttpClient} from "@angular/common/http";
 import {ToastrService} from "ngx-toastr";
-import {ORDERS_CREATE_URL} from "../shared/constants/urls";
+import {ORDER_NEW_FOR_CURRENT_USER_URL, ORDERS_CREATE_URL} from "../shared/constants/urls";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -16,5 +17,9 @@ export class OrderService {
 
   create(order: Order) {
     return this.http.post<Order>(ORDERS_CREATE_URL, order);
+  }
+
+  getNewOrderForCurrentUser(): Observable<Order> {
+    return this.http.get<Order>(ORDER_NEW_FOR_CURRENT_USER_URL);
   }
 }
