@@ -1,33 +1,35 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-5 offset-1">
-      <app-title title="Order Form"></app-title>
-      <form [formGroup]="checkoutForm">
-        <text-input
-          [control]="fc.name"
-          label="Name">
-        </text-input>
-        <text-input
-          [control]="fc.address"
-          label="Address">
-        </text-input>
-      </form>
-      <div class="card mt-4">
-        <div class="card-body">
-          <order-items-list [order]="order"></order-items-list>
-        </div>
+  <!--  <div class="row">-->
+  <!--    <div class="col-md-5 offset-1">-->
+  <!--    </div>-->
+  <!--    <div class="col-md-5">-->
+  <!--      <app-title title="Choose Your Address On Map"></app-title>-->
+  <!--      <map></map>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <section class="form-container-lg  w-100 m-auto">
+    <app-title title="Order Form"></app-title>
+    <form [formGroup]="checkoutForm">
+      <text-input
+        [control]="fc.name"
+        label="Name">
+      </text-input>
+      <text-input
+        [control]="fc.address"
+        label="Address">
+      </text-input>
+    </form>
+    <div class="card mt-4">
+      <div class="card-body">
+        <order-items-list [order]="order"></order-items-list>
       </div>
-
     </div>
-    <div class="col-md-5">
-      <app-title title="Choose Your Address On Map"></app-title>
+    <div class="d-flex justify-content-center mt-4">
+      <button (click)="createOrder()" class="btn btn-danger round-btn w-25">
+        Go To Payment
+      </button>
     </div>
-  </div>
+  </section>
 
-  <div class="d-flex justify-content-center mt-4">
-    <button (click)="createOrder()" class="btn btn-danger round-btn w-25">
-      Go To Payment
-    </button>
-
-  </div>
 </div>

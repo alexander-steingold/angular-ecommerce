@@ -6,6 +6,7 @@ import express, {request} from "express";
 import cors from "cors";
 import itemRouter from "./routers/item.router";
 import userRouter from "./routers/user.router";
+import orderRouter from "./routers/order.router";
 import {dbConnect} from "./configs/database.config";
 
 dbConnect();
@@ -17,7 +18,8 @@ app.use(cors({
 })); // for parsing HTTP Cookies
 
 app.use("/api/items", itemRouter);
-app.use("/api/user", userRouter);
+app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 const port = process.env.PORT || 5000; // default port
 
 app.listen(port, () => {
