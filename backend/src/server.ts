@@ -15,11 +15,13 @@ app.use(express.json()); // for parsing JSON POST data
 app.use(cors({
     credentials: true,
     origin: ["http://localhost:4200"]
-})); // for parsing HTTP Cookies
+})); // accept request from specified server
 
 app.use("/api/items", itemRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
+
+app.use(express.static('public'));
 const port = process.env.PORT || 5000; // default port
 
 app.listen(port, () => {
