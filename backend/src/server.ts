@@ -14,7 +14,8 @@ const app = express();
 app.use(express.json()); // for parsing JSON POST data
 app.use(cors({
     credentials: true,
-    origin: ["http://localhost:4200"]
+    //origin: ["http://localhost:4200"]
+    origin: "*"
 })); // accept request from specified server
 
 app.use("/api/items", itemRouter);
