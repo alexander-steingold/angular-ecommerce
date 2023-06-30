@@ -1,0 +1,36 @@
+<div class="container">
+  <section *ngIf="order" class="form-container-lg  w-100 m-auto">
+    <h2 class="h5 text-danger">Order #{{order.id}}</h2>
+
+    <div>
+      <span class="fw-bolder">Date</span>
+      {{order.createdAt | date:'medium'}}
+    </div>
+    <div>
+      <span class="fw-bolder">Sum</span>
+      {{order.totalPrice | currency}}
+    </div>
+    <div>
+      <span class="fw-bolder">Name</span>
+      {{order.name}}
+    </div>
+    <div>
+      <span class="fw-bolder">Address</span>
+      {{order.address}}
+    </div>
+    <div>
+      <span class="fw-bolder">Status</span>
+      {{order.status}}
+    </div>
+    <div *ngIf="order.paymentId">
+      <span class="fw-bolder">Payment ID</span>
+      {{order.paymentId}}
+    </div>
+    <div class="card mt-4">
+      <div class="card-body">
+        <order-items-list [order]="order"></order-items-list>
+      </div>
+    </div>
+  </section>
+
+</div>

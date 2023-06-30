@@ -20,7 +20,6 @@ export class ItemPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
         this.itemService.getItemById(params['id']).subscribe(serverItem => {
