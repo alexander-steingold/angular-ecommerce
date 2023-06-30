@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 
 dotenv.config();
-
+import path from 'path';
 import express, {request} from "express";
 import cors from "cors";
 import itemRouter from "./routers/item.router";
@@ -22,8 +22,12 @@ app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
 app.use(express.static('public'));
-const port = process.env.PORT || 5000; // default port
 
+app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'index.html')) // take care of all frontend routes
+    }
+);
+const port = process.env.PORT || 5000; // default port
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 }) // start server
