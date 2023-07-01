@@ -22,7 +22,6 @@ export class CartService {
       this.setCartToLocalStorage();
     }
     return;
-
   }
 
   removeFromCart(itemId: string): void {

@@ -32,3 +32,7 @@ table img {
   object-fit: cover;
   border-radius: 100rem !important;
 }
+
+.pointer {
+  cursor: pointer
+}
